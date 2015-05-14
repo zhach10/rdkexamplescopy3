@@ -1,0 +1,101 @@
+{
+   "RESTAction" : {
+      "actionPack" : {
+         "name" : "RDK Examples copy3",
+         "category" : "RDK Examples",
+         "description" : "Action examples created using RDK",
+         "author" : "CA Technologies",
+         "dependencies" : "",
+         "platform" : "",
+         "version" : "1.0  ",
+         "license" : "",
+         "imageLocation" : "",
+         "lastModified" : "2015-05-14T04:44:27.163-04:00",
+         "tags" : [ ],
+         "packageName" : "rdkexamplescopy3"
+      },
+      "name" : "RDK - RESTful",
+      "category" : "",
+      "description" : "Weather information example.",
+      "inputParamList" : [ {
+         "name" : "City",
+         "type" : "String",
+         "description" : "Enter the name of a city.",
+         "required" : true,
+         "value" : "Amsterdam",
+         "variableName" : "city",
+         "arrayOption" : false
+      }, {
+         "name" : "Output File Location",
+         "type" : "String",
+         "description" : "Specifies the location and filename to which the output of the command will be written. For example C:\\temp\\output.txt.",
+         "required" : false,
+         "defaultValue" : "",
+         "value" : "c:\\tmp\\out.txt",
+         "variableName" : "outputfilelocation",
+         "arrayOption" : false
+      } ],
+      "outputParamList" : [ {
+         "name" : "Name",
+         "type" : "String",
+         "description" : "Name extracted from JSON output.",
+         "filterValue" : "$.list[0].name",
+         "filterType" : "JSON",
+         "variableName" : "name",
+         "source" : "standardOut",
+         "arrayOption" : false
+      }, {
+         "name" : "Temp",
+         "type" : "String",
+         "description" : "Name extracted from JSON output.",
+         "filterValue" : "$.list[0].main.temp",
+         "filterType" : "JSON",
+         "variableName" : "temp",
+         "source" : "standardOut",
+         "arrayOption" : false
+      }, {
+         "name" : "Pressure",
+         "type" : "String",
+         "description" : "Pressure extracted from JSON output.",
+         "filterValue" : "$.list[0].main.pressure",
+         "filterType" : "JSON",
+         "variableName" : "pressure",
+         "source" : "standardOut",
+         "arrayOption" : false
+      }, {
+         "name" : "Description",
+         "type" : "String",
+         "description" : "Description extracted from JSON output.",
+         "filterValue" : "$.list[0].weather[0].description",
+         "filterType" : "JSON",
+         "variableName" : "description",
+         "source" : "standardOut",
+         "arrayOption" : false
+      }, {
+         "name" : "Execution Output",
+         "type" : "String",
+         "description" : "This output parameter holds the complete raw output of the command execution.",
+         "filterValue" : "[\\s\\S]*",
+         "filterType" : "REGEX",
+         "variableName" : "executionoutput",
+         "source" : "standardOut",
+         "arrayOption" : false
+      } ],
+      "successMessage" : "Execution succeeded",
+      "type" : "REST",
+      "complete" : true,
+      "lastModified" : "2015-05-14T04:44:28.27-04:00",
+      "className" : "RDKRESTful",
+      "packageName" : "com.mycompany.rdkexamplescopy3",
+      "requestURI" : "http://api.openweathermap.org/data/2.1/find/name?q=${City}",
+      "requestMethod" : "POST",
+      "timeout" : 30,
+      "language" : "",
+      "bodyContent" : {
+         "contentType" : "",
+         "encoding" : "",
+         "rawRequest" : ""
+      },
+      "authentication" : [ "NONE", "NONE" ]
+   }
+}

@@ -1,0 +1,84 @@
+{
+   "CLIAction" : {
+      "actionPack" : {
+         "name" : "RDK Examples copy3",
+         "category" : "RDK Examples",
+         "description" : "Action examples created using RDK",
+         "author" : "CA Technologies",
+         "dependencies" : "",
+         "platform" : "",
+         "version" : "1.0  ",
+         "license" : "",
+         "imageLocation" : "",
+         "lastModified" : "2015-05-14T04:44:27.163-04:00",
+         "tags" : [ ],
+         "packageName" : "rdkexamplescopy3"
+      },
+      "name" : "RDK - CLI Run PowerShell",
+      "description" : "This action runs a PowerShell script.",
+      "inputParamList" : [ {
+         "name" : "Message",
+         "type" : "String",
+         "description" : "Enter an input value.",
+         "required" : true,
+         "variableName" : "message",
+         "arrayOption" : false
+      } ],
+      "outputParamList" : [ {
+         "name" : "Execution Output",
+         "type" : "String",
+         "description" : "This output parameter holds the standard output of the command execution.",
+         "filterValue" : "[\\s\\S]*",
+         "filterType" : "REGEX",
+         "variableName" : "executionoutput",
+         "source" : "standardOut",
+         "arrayOption" : false
+      }, {
+         "name" : "Error Output",
+         "type" : "String",
+         "description" : "This output parameter holds the standard error output of the command execution.",
+         "filterValue" : "[\\s\\S]*",
+         "filterType" : "REGEX",
+         "variableName" : "erroroutput",
+         "source" : "standardError",
+         "arrayOption" : false
+      }, {
+         "name" : "Exit Code",
+         "type" : "Integer",
+         "description" : "This output parameter holds the returned exit code of the command execution.",
+         "filterValue" : "",
+         "filterType" : "REGEX",
+         "variableName" : "exitcode",
+         "source" : "exitCode",
+         "arrayOption" : false
+      } ],
+      "successMessage" : "Execution succeeded",
+      "type" : "CLI",
+      "complete" : true,
+      "lastModified" : "2015-05-14T04:44:28.113-04:00",
+      "className" : "RDKCLIRunPowerShell",
+      "packageName" : "com.mycompany.rdkexamplescopy3",
+      "cliCommands" : [ {
+         "command" : "PowerShell -ExecutionPolicy RemoteSigned -File ${SCRIPT_NAME} ${Message}",
+         "execDir" : "%TEMP%",
+         "osType" : "WINDOWS",
+         "overwriteOutput" : false,
+         "script" : {
+            "content" : "param ($myArg)\nWrite-Host \"You entered\" $myArg",
+            "name" : "RDKCLIRunPowerShell1402339586428.ps1",
+            "overwriteOutput" : false,
+            "timeout" : 0,
+            "waitForProcess" : false
+         },
+         "timeout" : 0,
+         "waitForProcessToFinish" : false
+      }, {
+         "command" : "",
+         "execDir" : "/tmp/",
+         "osType" : "LINUX",
+         "overwriteOutput" : false,
+         "timeout" : 0,
+         "waitForProcessToFinish" : false
+      } ]
+   }
+}

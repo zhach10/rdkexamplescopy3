@@ -1,0 +1,84 @@
+{
+   "CLIAction" : {
+      "actionPack" : {
+         "name" : "RDK Examples copy3",
+         "category" : "RDK Examples",
+         "description" : "Action examples created using RDK",
+         "author" : "CA Technologies",
+         "dependencies" : "",
+         "platform" : "",
+         "version" : "1.0  ",
+         "license" : "",
+         "imageLocation" : "",
+         "lastModified" : "2015-05-14T04:44:27.163-04:00",
+         "tags" : [ ],
+         "packageName" : "rdkexamplescopy3"
+      },
+      "name" : "RDK - CLI Run VBScript",
+      "description" : "This action runs a VBscript.",
+      "inputParamList" : [ {
+         "name" : "Input",
+         "type" : "String",
+         "description" : "Enter an input value.",
+         "required" : true,
+         "variableName" : "input",
+         "arrayOption" : false
+      } ],
+      "outputParamList" : [ {
+         "name" : "Execution Output",
+         "type" : "String",
+         "description" : "This output parameter holds the standard output of the command execution.",
+         "filterValue" : "[\\s\\S]*",
+         "filterType" : "REGEX",
+         "variableName" : "executionoutput",
+         "source" : "standardOut",
+         "arrayOption" : false
+      }, {
+         "name" : "Error Output",
+         "type" : "String",
+         "description" : "This output parameter holds the standard error output of the command execution.",
+         "filterValue" : "[\\s\\S]*",
+         "filterType" : "REGEX",
+         "variableName" : "erroroutput",
+         "source" : "standardError",
+         "arrayOption" : false
+      }, {
+         "name" : "Exit Code",
+         "type" : "Integer",
+         "description" : "This output parameter holds the returned exit code of the command execution.",
+         "filterValue" : "",
+         "filterType" : "REGEX",
+         "variableName" : "exitcode",
+         "source" : "exitCode",
+         "arrayOption" : false
+      } ],
+      "successMessage" : "Execution succeeded",
+      "type" : "CLI",
+      "complete" : true,
+      "lastModified" : "2015-05-14T04:44:28.192-04:00",
+      "className" : "RDKCLIRunVBScript",
+      "packageName" : "com.mycompany.rdkexamplescopy3",
+      "cliCommands" : [ {
+         "command" : "cscript //nologo ${SCRIPT_NAME} ${Input}",
+         "execDir" : "%TEMP%",
+         "osType" : "WINDOWS",
+         "overwriteOutput" : false,
+         "script" : {
+            "content" : "WScript.Echo \"You entered \" + Wscript.Arguments(0)\nWScript.Quit",
+            "name" : "RDKCLIRunVBScript1402339586493.vbs",
+            "overwriteOutput" : false,
+            "timeout" : 0,
+            "waitForProcess" : false
+         },
+         "timeout" : 0,
+         "waitForProcessToFinish" : false
+      }, {
+         "command" : "",
+         "execDir" : "~",
+         "osType" : "LINUX",
+         "overwriteOutput" : false,
+         "timeout" : 0,
+         "waitForProcessToFinish" : false
+      } ]
+   }
+}

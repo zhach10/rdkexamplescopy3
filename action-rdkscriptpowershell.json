@@ -1,0 +1,85 @@
+{
+   "SCRIPTAction" : {
+      "actionPack" : {
+         "name" : "RDK Examples copy3",
+         "category" : "RDK Examples",
+         "description" : "Action examples created using RDK",
+         "author" : "CA Technologies",
+         "dependencies" : "",
+         "platform" : "",
+         "version" : "1.0  ",
+         "license" : "",
+         "imageLocation" : "",
+         "lastModified" : "2015-05-14T04:44:27.163-04:00",
+         "tags" : [ ],
+         "packageName" : "rdkexamplescopy3"
+      },
+      "name" : "RDK - Script PowerShell",
+      "description" : "Runs a PowerShell script and demonstrates RDK error conditions.",
+      "inputParamList" : [ {
+         "name" : "Selection",
+         "type" : "Selection",
+         "description" : "Make a selection.",
+         "required" : false,
+         "defaultValue" : "OK",
+         "value" : "OK",
+         "variableName" : "selection",
+         "array" : [ "OK", "KO" ],
+         "arrayOption" : true
+      } ],
+      "outputParamList" : [ {
+         "name" : "Execution Output",
+         "type" : "String",
+         "description" : "This output parameter holds the standard output of the command execution.",
+         "filterValue" : "[\\s\\S]*",
+         "filterType" : "REGEX",
+         "variableName" : "executionoutput",
+         "source" : "standardOut",
+         "arrayOption" : false
+      }, {
+         "name" : "Error Output",
+         "type" : "String",
+         "description" : "This output parameter holds the standard error output of the command execution.",
+         "filterValue" : "[\\s\\S]*",
+         "filterType" : "REGEX",
+         "variableName" : "erroroutput",
+         "source" : "standardError",
+         "arrayOption" : false
+      }, {
+         "name" : "Exit Code",
+         "type" : "Integer",
+         "description" : "This output parameter holds the returned exit code of the command execution.",
+         "filterValue" : "",
+         "filterType" : "REGEX",
+         "variableName" : "exitcode",
+         "source" : "exitCode",
+         "arrayOption" : false
+      } ],
+      "successMessage" : "Execution succeeded",
+      "errorCondition" : [ {
+         "parameter" : "Execution Output",
+         "operation" : "CONTAINS",
+         "value" : "KO",
+         "message" : "Execution failed, ${Selection} was selected."
+      } ],
+      "type" : "SCRIPT",
+      "complete" : true,
+      "lastModified" : "2015-05-14T04:44:28.41-04:00",
+      "className" : "RDKScriptPowerShell",
+      "packageName" : "com.mycompany.rdkexamplescopy3",
+      "shellType" : "POWERSHELL",
+      "powerShellScript" : {
+         "content" : "Write-Host ${Selection}",
+         "execDir" : "%TEMP%",
+         "location" : "",
+         "name" : "",
+         "osType" : "WINDOWS",
+         "overwriteOutput" : false,
+         "shell" : "POWERSHELL",
+         "timeout" : 0,
+         "waitForProcess" : false,
+         "executionTimeout" : 240,
+         "expectedReturnCode" : 200
+      }
+   }
+}

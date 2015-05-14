@@ -1,0 +1,16 @@
+{
+   "ActionPack" : {
+      "name" : "RDK Examples copy3",
+      "category" : "RDK Examples",
+      "description" : "Action examples created using RDK",
+      "author" : "CA Technologies",
+      "dependencies" : "",
+      "platform" : "",
+      "version" : "1.0  ",
+      "license" : "",
+      "imageLocation" : "",
+      "lastModified" : "2015-05-14T04:44:27.163-04:00",
+      "tags" : [ ],
+      "packageName" : "rdkexamplescopy3"
+   }
+}
